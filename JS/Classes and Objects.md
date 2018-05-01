@@ -44,10 +44,12 @@ SoftwareDeveloper {favoriteLanguage: 'JavaScript'.
 
 ## Constructor Functions Can Have Parameters
 
-```function SoftwareDeveloper(name) {
+```
+function SoftwareDeveloper(name) {
   this.favoriteLanguage = 'JavaScript';
   this.name = name;
-}```
+}
+```
 
 In the updated ```SoftwareDeveloper()``` function, whatever value is passed into the function will be the value of the object's name property. Let's check it out:
 
@@ -56,6 +58,7 @@ let instructor = new SoftwareDeveloper('Andrew');
 
 console.log(instructor);
 // SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Andrew' }
+
 ```
 
 Great! And as we've seen above, we can create different objects using the same constructor. Let's call the same constructor function but pass a different argument this time:
