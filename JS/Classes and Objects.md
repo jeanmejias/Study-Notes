@@ -1,14 +1,14 @@
 # CLASSES AND OBJECTS
 
 **Creating an object:**
-```const Car = {
+const Car = {
 	model: 'Polo',
 	brand: 'wokswagen',
 	type: 'petrol',
 	use: function() {
 	console.log (this.model + 'is for driving')
 }
-}```
+}
 
 ## Constructor Functions 
 
@@ -57,13 +57,12 @@ console.log(instructor);
 Great! And as we've seen above, we can create different objects using the same constructor. Let's call the same constructor function but pass a different argument this time:
 
 ```let teacher = new SoftwareDeveloper('Richard');
-
 console.log(teacher);
 // SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }```
 
 ## exercise 
 
-``` /*
+```/*
 
 Now it's your turn to create a constructor function. Declare a
 `Sandwich` constructor function that takes three parameters:
@@ -84,8 +83,9 @@ function Sandwich (bread, meat, vegetables) {
    const ingredientes = new Sandwich('wheat',['beef','chicken','pork'],['tomato','onion','cucumber']);
    
    
-   console.log(ingredientes); ```
+   console.log(ingredientes);```
    
    ## Further Research 
+   
    [The new operator] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new).
    [The instanceOf operator] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof).
