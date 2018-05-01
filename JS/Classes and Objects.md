@@ -1,14 +1,14 @@
 # CLASSES AND OBJECTS
 
 **Creating an object:**
-const Car = {
+```const Car = {
 	model: 'Polo',
 	brand: 'wokswagen',
 	type: 'petrol',
 	use: function() {
 	console.log (this.model + 'is for driving')
 }
-}
+}```
 
 ## Constructor Functions 
 
@@ -23,7 +23,7 @@ This is what the internals of a constructor function looks like:
 
 ```function SoftwareDeveloper() {
   this.favoriteLanguage = 'JavaScript';
-} ```
+}```
  
  **this** refers to the new object that was created by using the **new** keyword in front of the constructor function. 
 
@@ -38,7 +38,7 @@ This is what the internals of a constructor function looks like:
 let developer = new SoftwareDeveloper();
 
 console.log(developer);
-SoftwareDeveloper {favoriteLanguage: 'JavaScript'```
+SoftwareDeveloper {favoriteLanguage: 'JavaScript'.```
 
 ## Constructor Functions Can Have Parameters
 
