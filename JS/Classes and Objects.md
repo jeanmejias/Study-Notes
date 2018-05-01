@@ -67,7 +67,6 @@ console.log(teacher);
 ```
 
 ## exercise 
-```
  /*
 
 Now it's your turn to create a constructor function. Declare a
@@ -79,7 +78,7 @@ Now it's your turn to create a constructor function. Declare a
 3. `vegetables` (array) - the vegetables to include in the sandwich
 
 */
-
+```
 function Sandwich (bread, meat, vegetables) {
     this.bread = bread;
     this.meat = meat;
