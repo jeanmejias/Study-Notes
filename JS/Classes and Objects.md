@@ -20,25 +20,27 @@ What does make SoftwwareDeveloper() a constructor function are:
 
 ## Constructor Functions: Structure and Syntax
 This is what the internals of a constructor function looks like:
-
-```function SoftwareDeveloper() {
+```
+ function SoftwareDeveloper() {
   this.favoriteLanguage = 'JavaScript';
-}```
- 
+}
+ ```
  **this** refers to the new object that was created by using the **new** keyword in front of the constructor function. 
 
  - ** Constructor functions in JavaScript should not have an explicit return value (i.e., there should not be ```return``` statement).**
 
 ## Creating a New Object
 
-```function SoftwareDeveloper() {
+```
+function SoftwareDeveloper() {
   this.favoriteLanguage = 'JavaScript';
 } 
 
 let developer = new SoftwareDeveloper();
 
 console.log(developer);
-SoftwareDeveloper {favoriteLanguage: 'JavaScript'.```
+SoftwareDeveloper {favoriteLanguage: 'JavaScript'.
+```
 
 ## Constructor Functions Can Have Parameters
 
@@ -49,20 +51,24 @@ SoftwareDeveloper {favoriteLanguage: 'JavaScript'.```
 
 In the updated ```SoftwareDeveloper()``` function, whatever value is passed into the function will be the value of the object's name property. Let's check it out:
 
-```let instructor = new SoftwareDeveloper('Andrew');
+```
+let instructor = new SoftwareDeveloper('Andrew');
 
 console.log(instructor);
-// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Andrew' } ```
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Andrew' }
+```
 
 Great! And as we've seen above, we can create different objects using the same constructor. Let's call the same constructor function but pass a different argument this time:
 
-```let teacher = new SoftwareDeveloper('Richard');
+```
+let teacher = new SoftwareDeveloper('Richard');
 console.log(teacher);
-// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }```
+// SoftwareDeveloper { favoriteLanguage: 'JavaScript', name: 'Richard' }
+```
 
 ## exercise 
-
-```/*
+```
+ /*
 
 Now it's your turn to create a constructor function. Declare a
 `Sandwich` constructor function that takes three parameters:
@@ -83,9 +89,10 @@ function Sandwich (bread, meat, vegetables) {
    const ingredientes = new Sandwich('wheat',['beef','chicken','pork'],['tomato','onion','cucumber']);
    
    
-   console.log(ingredientes);```
+   console.log(ingredientes);
+   ```
    
    ## Further Research 
    
-   [The new operator] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new).
-   [The instanceOf operator] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof).
+   [ The new operator]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new).
+   [ The instanceOf operator]( https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof).
