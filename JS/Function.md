@@ -93,3 +93,91 @@ If the function is called with no context:
 In the code above, the value of this inside ```teleport()``` is either the global object or, if in strict mode, it's undefined.
 
 TIP: ```this``` in JavaScript is a complicated topic. We just did a quick overview, but for an in-depth look at how ```this``` is determined, check out {this All Makes Sense Now!] (https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md) from Kyle Simpson's book series [You Don't Know JS] (https://github.com/getify/You-Dont-Know-JS/blob/master/README.md).
+
+# Default function parameters
+- ES6 has introduced a new way to create defaults. It's called default function parameters.
+
+```
+function greet(name = 'Student', greeting = 'Welcome') {
+  return `${greeting} ${name}!`;
+}
+
+greet(); // Welcome Student!
+greet('James'); // Welcome James!
+greet('Richard', 'Howdy'); // Howdy Richard!
+```
+To create a default parameter, you add an equal sign ( = ) and then whatever you want the parameter to default to if an argument is not provided.
+
+```
+Take a look at the following code:
+
+function shippingLabel(name, address) {
+  name = (typeof name !== 'undefined') ? name : 'Richard';
+  address = (typeof address !== 'undefined') ?  address : 'Mountain View';
+  return `To: ${name} In: ${address}`;
+}
+```
+
+```
+function ShippingLabel( name ='Richard', address = 'Mountain View') {
+	return `To: ${name} In: ${address}`;
+}
+```
+
+# Defaults and destructuring arrays
+```
+function createGrid([width = 5, height = 5]) {
+  return `Generates a ${width} x ${height} grid`;
+}
+
+createGrid([]); // Generates a 5 x 5 grid
+createGrid([2]); // Generates a 2 x 5 grid
+createGrid([2, 3]); // Generates a 2 x 3 grid
+createGrid([undefined, 3]); // Generates a 5 x 3 grid
+
+createGrid(); // throws an error
+```
+
+```
+function createGrid([width = 5, height = 5] = []) {
+  return `Generates a ${width} x ${height} grid`;
+}
+createGrid(); // Generates a 5 x 5 grid
+```
+
+# ES5 "Class" Recap
+```
+function Plane(numEngines) {
+  this.numEngines = numEngines;
+  this.enginesActive = false;
+}
+
+// methods "inherited" by all instances
+Plane.prototype.startEngines = function () {
+  console.log('starting engines...');
+  this.enginesActive = true;
+};
+
+const richardsPlane = new Plane(1);
+richardsPlane.startEngines();
+
+const jamesPlane = new Plane(4);
+jamesPlane.startEngines();
+```
+
+# ES6 Classes
+Here's what that same Plane class would look like if it were written using the new class syntax:
+```
+class Plane {
+  constructor(numEngines) {
+    this.numEngines = numEngines;
+    this.enginesActive = false;
+  }
+
+  startEngines() {
+    console.log('starting engines…');
+    this.enginesActive = true;
+  }
+}
+```
+
