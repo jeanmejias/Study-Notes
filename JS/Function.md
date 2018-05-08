@@ -92,7 +92,7 @@ If the function is called with no context:
 ```teleport();```
 In the code above, the value of this inside ```teleport()``` is either the global object or, if in strict mode, it's undefined.
 
-TIP: ```this``` in JavaScript is a complicated topic. We just did a quick overview, but for an in-depth look at how ```this``` is determined, check out {this All Makes Sense Now!] (https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md) from Kyle Simpson's book series [You Don't Know JS] (https://github.com/getify/You-Dont-Know-JS/blob/master/README.md).
+TIP: ```this``` in JavaScript is a complicated topic. We just did a quick overview, but for an in-depth look at how ```this``` is determined, check out [this All Makes Sense Now!] (https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md) from Kyle Simpson's book series [You Don't Know JS] (https://github.com/getify/You-Dont-Know-JS/blob/master/README.md).
 
 # Default function parameters
 - ES6 has introduced a new way to create defaults. It's called default function parameters.
@@ -180,4 +180,83 @@ class Plane {
   }
 }
 ```
+# Super and Extends
+## Subclasses with ES6
+Now that we've looked at creating classes in JavaScript. Let's use the new super and extends keywords to extend a class.
 
+```
+class Tree {
+  constructor(size = '10', leaves = {spring: 'green', summer: 'green', fall: 'orange', winter: null}) {
+    this.size = size;
+    this.leaves = leaves;
+    this.leafColor = null;
+  }
+
+  changeSeason(season) {
+    this.leafColor = this.leaves[season];
+    if (season === 'spring') {
+      this.size += 1;
+    }
+  }
+}
+
+class Maple extends Tree {
+  constructor(syrupQty = 15, size, leaves) {
+    super(size, leaves);
+    this.syrupQty = syrupQty;
+  }
+
+  changeSeason(season) {
+    super.changeSeason(season);
+    if (season === 'spring') {
+      this.syrupQty += 1;
+    }
+  }
+
+  gatherSyrup() {
+    this.syrupQty -= 3;
+  }
+}
+
+const myMaple = new Maple(15, 5);
+myMaple.changeSeason('fall');
+myMaple.gatherSyrup();
+myMaple.changeSeason('spring');
+```
+Both ```Tree``` and ```Maple``` are JavaScript classes. The Maple class is a "subclass" of ```Tree``` and uses the ```extends``` keyword to set itself as a "subclass". To get from the "subclass" to the parent class, the ```super``` keyword is used. Did you notice that super was used in two different ways? In ```Maple```'s constructor method, ```super``` is used as a function. In ```Maple```'s ```changeSeason()``` method, ```super``` is used as an object!
+
+#Exercise 
+##Directions:
+Create a Bicycle subclass that extends the Vehicle class. The Bicycle subclass should override Vehicle's constructor function by changing the default values for wheels from 4 to 2 and horn from 'beep beep' to 'honk honk'.
+```
+/*
+ * Programming Quiz: Building Classes and Subclasses (2-3)
+ */
+
+class Vehicle {
+	constructor(color = 'blue', wheels = 4, horn = 'beep beep') {
+		this.color = color;
+		this.wheels = wheels;
+		this.horn = horn;
+	}
+
+	honkHorn() {
+		console.log(this.horn);
+	}
+}
+
+// your code goes here
+class Bicycle extends Vehicle {
+	constructor (color ='blue', wheels = 2, horn='honk honk') {
+	    super (color,wheels,horn);
+	    this.wheels = wheels;
+	    this.horn = horn;
+	   
+	}
+	}
+
+const myVehicle = new Vehicle();
+myVehicle.honkHorn(); // beep beep
+const myBike = new Bicycle();
+myBike.honkHorn(); // honk honk
+```
