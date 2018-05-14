@@ -1,6 +1,6 @@
 
 # Arrow functions
-Arrow functions are very similiar to regular functions in behavior,but are quite deifferent syntactically. 
+Arrow functions are very similiar to regular functions in behavior,but are quite different syntactically. 
 
 ## Convert a function to an arrow function
 
